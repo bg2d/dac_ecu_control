@@ -7,14 +7,27 @@
 #define THREE 51
 #define FOUR  52
 #define FIVE  53
+#define NEW_LINE 10
+
+/*  Hex values for DAC control.
+ *  The values are computed using 5V reference voltage.
+ */
+ #define VOLT_0 0x000
+ #define VOLT_1 0x333
+ #define VOLT_2 0x666
+ #define VOLT_3 0x999
+ #define VOLT_4 0xCCC
+ #define VOLT_5 0xFFF
 
 int g_incoming_byte = 0; // for incoming serial data
 Adafruit_MCP4725 dac;
+uint32_t dac_val = 0x000;
 
 void setup() {
   Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
 
   dac.begin(0x62);
+  dac.setVoltage(dac_val, false);
 }
 
 void loop() {
@@ -27,40 +40,52 @@ void loop() {
       case ZERO: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
-        dac.setVoltage(0, false);
+        dac_val = VOLT_0;
+        dac.setVoltage(dac_val, false);
         break;
       }
       case ONE: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
-        dac.setVoltage(1, false);
+        dac_val = VOLT_1;
+        dac.setVoltage(dac_val, false);
         break;
       }
       case TWO: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
-        dac.setVoltage(2, false);
+        dac_val = VOLT_2;
+        dac.setVoltage(dac_val, false);
         break;
       }
       case THREE: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
-        dac.setVoltage(3, false);
+        dac_val = VOLT_3;
+        dac.setVoltage(dac_val, false);
         break;
       }
       case FOUR: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
-        dac.setVoltage(4, false);
+        dac_val = VOLT_4;
+        dac.setVoltage(dac_val, false);
         break;
       }
       case FIVE: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
-        dac.setVoltage(5, false);
+        dac_val = VOLT_5;
+        dac.setVoltage(dac_val, false);
+        break;
+      }
+      case NEW_LINE: {
         break;
       }
       default: {
+        Serial.print("I received: ");
+        Serial.println(g_incoming_byte, DEC);
+        Serial.println("Invalid input! Allowed values are: 0, 1, 2, 3, 4 and 5");
         break;
       }
     }
