@@ -40,6 +40,8 @@ void loop() {
       case ZERO: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
+        Serial.println("Set DAC to 0V");
+        
         dac_val = VOLT_0;
         dac.setVoltage(dac_val, false);
         break;
@@ -47,6 +49,8 @@ void loop() {
       case ONE: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
+        Serial.println("Set DAC to 1V");
+        
         dac_val = VOLT_1;
         dac.setVoltage(dac_val, false);
         break;
@@ -54,6 +58,8 @@ void loop() {
       case TWO: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
+        Serial.println("Set DAC to 2V");
+        
         dac_val = VOLT_2;
         dac.setVoltage(dac_val, false);
         break;
@@ -61,6 +67,8 @@ void loop() {
       case THREE: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
+        Serial.println("Set DAC to 3V");
+        
         dac_val = VOLT_3;
         dac.setVoltage(dac_val, false);
         break;
@@ -68,6 +76,8 @@ void loop() {
       case FOUR: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
+        Serial.println("Set DAC to 4V");
+        
         dac_val = VOLT_4;
         dac.setVoltage(dac_val, false);
         break;
@@ -75,6 +85,8 @@ void loop() {
       case FIVE: {
         Serial.print("I received: ");
         Serial.println(g_incoming_byte, DEC);
+        Serial.println("Set DAC to 5V");
+        
         dac_val = VOLT_5;
         dac.setVoltage(dac_val, false);
         break;
