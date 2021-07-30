@@ -12,16 +12,16 @@
 /*  Hex values for DAC control.
  *  The values are computed using 5V reference voltage.
  */
- #define VOLT_0 0x000
- #define VOLT_1 0x333
- #define VOLT_2 0x666
- #define VOLT_3 0x999
- #define VOLT_4 0xCCC
- #define VOLT_5 0xFFF
+#define VOLT_0 0x000
+#define VOLT_1 0x333
+#define VOLT_2 0x666
+#define VOLT_3 0x999
+#define VOLT_4 0xCCC
+#define VOLT_5 0xFFF
 
 int g_incoming_byte = 0; // for incoming serial data
 Adafruit_MCP4725 dac;
-uint32_t dac_val = 0x000;
+uint32_t dac_val = VOLT_0;
 
 void setup() {
   Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
